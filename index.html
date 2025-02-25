@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website with Slider and Round Images</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="header">
+        <h1>Company Information</h1>
+    </header>
+    <section class="carousel">
+        <div class="slider">
+            <div class="slides">
+                <div class="slide"><img src="https://th.bing.com/th/id/OIP.2zh0zNk4_1W6usKx4uiQrgHaFj?rs=1&pid=ImgDetMain" alt="Image 1"></div>
+                <div class="slide"><img src="https://th.bing.com/th/id/OIP.sT-xsy1GtnwcebmzkxPf4wHaFj?rs=1&pid=ImgDetMain" alt="Image 2"></div>
+                <div class="slide"><img src="https://youthincmag.com/wp-content/uploads/2018/06/company-building-min.jpg" alt="Image 3"></div>
+            </div>
+            <button class="prev" onclick="prevSlide()">&#10094;</button>
+            <button class="next" onclick="nextSlide()">&#10095;</button>
+        </div>
+    </section>
+    <script>
+        let index = 0;
+        const slides = document.querySelector('.slides');
+        const totalSlides = document.querySelectorAll('.slide').length;
+        
+        function showSlide() {
+            slides.style.transform = `translateX(${-index * 100}%)`;
+        }
+        
+        function nextSlide() {
+            index = (index + 1) % totalSlides;
+            showSlide();
+        }
+        
+        function prevSlide() {
+            index = (index - 1 + totalSlides) % totalSlides;
+            showSlide();
+        }
+        
+        setInterval(nextSlide, 3000);
+    </script>
+    
+    <section class="info">
+        <img src="girl.jpg" alt="Information Image" class="info-image">
+        <div class="text">
+            <h2>Founder</h2>
+            <p>
+                Meet joha, a dynamic and accomplished 
+                [profession] known for her expertise in [key skills or industry]. 
+                With [X] years of experience, she has made significant contributions in [specific field or achievements].
+                Her dedication, strategic thinking, and leadership have not only driven success in her career but also inspired those around her. 
+                Passionate about [industry or cause], she continues to push boundaries and set new standards in her field. 
+                Whether leading teams, innovating solutions, or mentoring others, 
+                [joha] is a true force in the professional world. 
+            </p>
+        </div>
+        
+    </section>
+    <section class="round-images">
+        <img src="image1.jpg" alt="Round Image 1" class="circle">
+        <img src="image2.jpg" alt="Round Image 2" class="circle">
+        <img src="image3.jpg" alt="Round Image 3" class="circle">
+        <img src="image4.jpg" alt="Round Image 4" class="circle">
+    </section>
+    <footer class="footer">
+        <p>&copy; 2025 Your Website. All rights reserved.</p>
+    </footer>
+</body>
+</html>
